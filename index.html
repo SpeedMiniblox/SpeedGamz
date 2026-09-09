@@ -1,0 +1,1124 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0f19">
+<meta name="description" content="SpeedGamz - The ultimate gaming hub">
+<title>SpeedGamz - Ultimate Gaming Hub</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --bg:#070a12;
+ --panel:#0e1422;
+ --panel2:#121a2b;
+ --text:#f5f7ff;
+ --muted:#8e99b5;
+ --accent:#7c5cff;
+ --accent2:#00d4ff;
+ --good:#35e08b;
+ --danger:#ff4f70;
+ --border:rgba(255,255,255,.08);
+}
+
+body{
+ font-family:Arial,Helvetica,sans-serif;
+ background:
+ radial-gradient(circle at 20% 0%,rgba(124,92,255,.18),transparent 30%),
+ radial-gradient(circle at 90% 10%,rgba(0,212,255,.12),transparent 25%),
+ var(--bg);
+ color:var(--text);
+ min-height:100vh;
+}
+
+button,input,textarea,select{
+ font:inherit;
+}
+
+button{
+ cursor:pointer;
+}
+
+header{
+ position:sticky;
+ top:0;
+ z-index:100;
+ backdrop-filter:blur(18px);
+ background:rgba(7,10,18,.85);
+ border-bottom:1px solid var(--border);
+}
+
+.nav{
+ max-width:1400px;
+ margin:auto;
+ padding:16px 22px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:15px;
+}
+
+.logo{
+ font-size:27px;
+ font-weight:900;
+ letter-spacing:-1px;
+}
+
+.logo span{
+ color:var(--accent);
+}
+
+.navlinks{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+}
+
+.navlinks button,.topbtn{
+ background:transparent;
+ color:var(--muted);
+ border:1px solid transparent;
+ padding:9px 13px;
+ border-radius:10px;
+}
+
+.navlinks button:hover,.topbtn:hover{
+ color:white;
+ background:var(--panel2);
+ border-color:var(--border);
+}
+
+.container{
+ max-width:1400px;
+ margin:auto;
+ padding:30px 22px 70px;
+}
+
+.hero{
+ padding:50px 0 35px;
+ display:grid;
+ grid-template-columns:1.5fr 1fr;
+ gap:25px;
+ align-items:center;
+}
+
+.badge{
+ display:inline-block;
+ padding:7px 11px;
+ border-radius:999px;
+ background:rgba(124,92,255,.13);
+ border:1px solid rgba(124,92,255,.3);
+ color:#bcaeff;
+ font-size:13px;
+ margin-bottom:14px;
+}
+
+.hero h1{
+ font-size:clamp(42px,7vw,78px);
+ line-height:.95;
+ margin-bottom:18px;
+}
+
+.gradient{
+ background:linear-gradient(90deg,var(--accent),var(--accent2));
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.hero p{
+ color:var(--muted);
+ font-size:18px;
+ line-height:1.6;
+ max-width:700px;
+}
+
+.hero-buttons{
+ display:flex;
+ gap:10px;
+ margin-top:25px;
+ flex-wrap:wrap;
+}
+
+.primary,.secondary{
+ border:0;
+ border-radius:12px;
+ padding:13px 18px;
+ font-weight:800;
+}
+
+.primary{
+ color:white;
+ background:linear-gradient(135deg,var(--accent),#9a5cff);
+}
+
+.secondary{
+ color:white;
+ background:var(--panel2);
+ border:1px solid var(--border);
+}
+
+.primary:hover,.secondary:hover{
+ transform:translateY(-2px);
+}
+
+.hero-card{
+ background:linear-gradient(145deg,rgba(124,92,255,.18),rgba(0,212,255,.06));
+ border:1px solid var(--border);
+ border-radius:22px;
+ padding:25px;
+ box-shadow:0 20px 80px rgba(0,0,0,.25);
+}
+
+.hero-card h3{
+ margin-bottom:18px;
+}
+
+.stat{
+ display:flex;
+ justify-content:space-between;
+ padding:13px 0;
+ border-bottom:1px solid var(--border);
+}
+
+.stat:last-child{
+ border-bottom:0;
+}
+
+.stat span:last-child{
+ font-weight:900;
+ color:var(--accent2);
+}
+
+section{
+ margin-top:45px;
+ scroll-margin-top:90px;
+}
+
+.section-title{
+ display:flex;
+ align-items:end;
+ justify-content:space-between;
+ gap:15px;
+ margin-bottom:18px;
+}
+
+.section-title h2{
+ font-size:28px;
+}
+
+.section-title p{
+ color:var(--muted);
+}
+
+.search{
+ width:100%;
+ background:var(--panel);
+ border:1px solid var(--border);
+ color:white;
+ padding:14px 16px;
+ border-radius:12px;
+ outline:none;
+ margin-bottom:18px;
+}
+
+.search:focus{
+ border-color:var(--accent);
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+}
+
+.card{
+ background:rgba(14,20,34,.9);
+ border:1px solid var(--border);
+ border-radius:17px;
+ padding:19px;
+ transition:.2s;
+}
+
+.card:hover{
+ transform:translateY(-3px);
+ border-color:rgba(124,92,255,.45);
+}
+
+.card-icon{
+ font-size:32px;
+ margin-bottom:12px;
+}
+
+.card h3{
+ margin-bottom:7px;
+}
+
+.card p{
+ color:var(--muted);
+ line-height:1.5;
+ font-size:14px;
+}
+
+.card button{
+ width:100%;
+ margin-top:15px;
+ padding:10px;
+ border:0;
+ border-radius:10px;
+ color:white;
+ background:var(--panel2);
+}
+
+.tools{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+}
+
+.tool{
+ background:var(--panel);
+ border:1px solid var(--border);
+ border-radius:17px;
+ padding:20px;
+}
+
+.tool h3{
+ margin-bottom:15px;
+}
+
+label{
+ display:block;
+ color:var(--muted);
+ font-size:13px;
+ margin:10px 0 6px;
+}
+
+input,textarea,select{
+ width:100%;
+ padding:11px;
+ background:#090e19;
+ color:white;
+ border:1px solid var(--border);
+ border-radius:9px;
+ outline:none;
+}
+
+textarea{
+ min-height:150px;
+ resize:vertical;
+}
+
+.tool button{
+ margin-top:12px;
+ width:100%;
+ padding:11px;
+ border:0;
+ border-radius:9px;
+ background:var(--accent);
+ color:white;
+ font-weight:bold;
+}
+
+.result{
+ margin-top:13px;
+ padding:13px;
+ background:#090e19;
+ border:1px solid var(--border);
+ border-radius:9px;
+ min-height:45px;
+ color:#b9c4df;
+ white-space:pre-wrap;
+ word-break:break-word;
+}
+
+.game-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+}
+
+.game{
+ min-height:180px;
+ display:flex;
+ flex-direction:column;
+ justify-content:end;
+ overflow:hidden;
+ position:relative;
+ background:linear-gradient(145deg,#161d31,#0c101b);
+}
+
+.game:before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:radial-gradient(circle at 80% 15%,rgba(124,92,255,.45),transparent 35%);
+}
+
+.game>*{
+ position:relative;
+}
+
+.game .emoji{
+ font-size:45px;
+ margin-bottom:auto;
+}
+
+.game button{
+ margin-top:13px;
+}
+
+.quick{
+ display:grid;
+ grid-template-columns:repeat(6,1fr);
+ gap:10px;
+}
+
+.quick a{
+ text-decoration:none;
+ color:white;
+ background:var(--panel);
+ border:1px solid var(--border);
+ padding:15px 10px;
+ border-radius:12px;
+ text-align:center;
+}
+
+.quick a:hover{
+ border-color:var(--accent);
+}
+
+.news{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+}
+
+.news-card{
+ padding:20px;
+ background:var(--panel);
+ border:1px solid var(--border);
+ border-radius:16px;
+}
+
+.news-card small{
+ color:var(--accent2);
+}
+
+.news-card p{
+ color:var(--muted);
+ margin-top:8px;
+ line-height:1.5;
+}
+
+.checklist{
+ display:flex;
+ gap:8px;
+}
+
+.checklist input{
+ flex:1;
+}
+
+.todo{
+ list-style:none;
+ margin-top:15px;
+}
+
+.todo li{
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ padding:11px;
+ border-bottom:1px solid var(--border);
+ color:#dce2f5;
+}
+
+.todo li button{
+ width:auto;
+ margin:0;
+ padding:5px 9px;
+ background:var(--danger);
+}
+
+footer{
+ border-top:1px solid var(--border);
+ text-align:center;
+ color:var(--muted);
+ padding:30px 20px;
+}
+
+kbd{
+ background:#050812;
+ border:1px solid var(--border);
+ padding:3px 7px;
+ border-radius:5px;
+ color:white;
+}
+
+.hidden{
+ display:none!important;
+}
+
+@media(max-width:1050px){
+ .grid,.game-grid{grid-template-columns:repeat(2,1fr)}
+ .tools{grid-template-columns:1fr 1fr}
+ .quick{grid-template-columns:repeat(3,1fr)}
+ .hero{grid-template-columns:1fr}
+}
+
+@media(max-width:700px){
+ .nav{align-items:flex-start;flex-direction:column}
+ .navlinks{width:100%;overflow:auto;flex-wrap:nowrap}
+ .container{padding:20px 14px 50px}
+ .hero{padding-top:35px}
+ .grid,.game-grid,.tools,.news{grid-template-columns:1fr}
+ .quick{grid-template-columns:repeat(2,1fr)}
+ .hero h1{font-size:48px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <nav class="nav">
+  <div class="logo">Speed<span>Gamz</span> 🎮</div>
+  <div class="navlinks">
+   <button onclick="scrollToId('games')">Games</button>
+   <button onclick="scrollToId('tools')">Tools</button>
+   <button onclick="scrollToId('minecraft')">Minecraft</button>
+   <button onclick="scrollToId('notes')">Notes</button>
+   <button onclick="scrollToId('news')">What's New</button>
+   <button onclick="toggleTheme()" class="topbtn">🌙 Theme</button>
+  </div>
+ </nav>
+</header>
+
+<main class="container">
+
+<section class="hero">
+ <div>
+  <span class="badge">⚡ THE GAMER'S ALL-IN-ONE HUB</span>
+  <h1>Welcome to <span class="gradient">SpeedGamz</span></h1>
+  <p>
+   Games, tools, calculators, Minecraft generators, timers, notes,
+   randomizers and everything else you need while gaming — all in one place.
+  </p>
+
+  <div class="hero-buttons">
+   <button class="primary" onclick="scrollToId('games')">🎮 Explore Games</button>
+   <button class="secondary" onclick="scrollToId('tools')">🛠️ Open Tools</button>
+  </div>
+ </div>
+
+ <div class="hero-card">
+  <h3>⚡ SpeedGamz Dashboard</h3>
+  <div class="stat"><span>Games</span><span id="gameCount">0</span></div>
+  <div class="stat"><span>Tools</span><span>12+</span></div>
+  <div class="stat"><span>Notes Saved</span><span id="noteStatus">0</span></div>
+  <div class="stat"><span>Status</span><span>ONLINE</span></div>
+ </div>
+</section>
+
+<section id="games">
+ <div class="section-title">
+  <div>
+   <h2>🎮 Game Hub</h2>
+   <p>Quickly find your games.</p>
+  </div>
+ </div>
+
+ <input class="search" id="gameSearch" placeholder="🔎 Search games..." oninput="searchGames()">
+
+ <div class="game-grid" id="gameGrid">
+
+  <div class="card game" data-name="minecraft">
+   <div class="emoji">⛏️</div>
+   <h3>Minecraft</h3>
+   <p>Commands, generators and tools.</p>
+   <button onclick="scrollToId('minecraft')">Open Tools</button>
+  </div>
+
+  <div class="card game" data-name="bloxd bloxdio">
+   <div class="emoji">🧱</div>
+   <h3>Bloxd.io</h3>
+   <p>Ideas, scripts and building tools.</p>
+   <button onclick="showMessage('Bloxd.io tools coming soon!')">Open</button>
+  </div>
+
+  <div class="card game" data-name="miniblox">
+   <div class="emoji">🟩</div>
+   <h3>Miniblox</h3>
+   <p>Scripts and creative ideas.</p>
+   <button onclick="showMessage('Miniblox tools coming soon!')">Open</button>
+  </div>
+
+  <div class="card game" data-name="roblox">
+   <div class="emoji">🟥</div>
+   <h3>Roblox</h3>
+   <p>Gaming utilities and ideas.</p>
+   <button onclick="showMessage('Roblox hub coming soon!')">Open</button>
+  </div>
+
+  <div class="card game" data-name="fortnite">
+   <div class="emoji">🔫</div>
+   <h3>Fortnite</h3>
+   <p>Gaming utilities.</p>
+   <button onclick="showMessage('Fortnite tools coming soon!')">Open</button>
+  </div>
+
+  <div class="card game" data-name="valorant">
+   <div class="emoji">🎯</div>
+   <h3>Valorant</h3>
+   <p>Gaming utilities.</p>
+   <button onclick="showMessage('Valorant tools coming soon!')">Open</button>
+  </div>
+
+  <div class="card game" data-name="among us">
+   <div class="emoji">🚀</div>
+   <h3>Among Us</h3>
+   <p>Quick gaming tools.</p>
+   <button onclick="showMessage('Sus detected 👀')">Open</button>
+  </div>
+
+  <div class="card game" data-name="gaming">
+   <div class="emoji">🕹️</div>
+   <h3>More Games</h3>
+   <p>Your gaming dashboard.</p>
+   <button onclick="showMessage('More games can be added!')">Add</button>
+  </div>
+
+ </div>
+</section>
+
+<section id="tools">
+ <div class="section-title">
+  <div>
+   <h2>🛠️ Gamer Tools</h2>
+   <p>Useful tools without leaving SpeedGamz.</p>
+  </div>
+ </div>
+
+ <div class="tools">
+
+  <div class="tool">
+   <h3>🎲 Random Number</h3>
+   <label>Minimum</label>
+   <input id="minNum" type="number" value="1">
+   <label>Maximum</label>
+   <input id="maxNum" type="number" value="100">
+   <button onclick="randomNumber()">Generate</button>
+   <div class="result" id="randomResult">Your number appears here.</div>
+  </div>
+
+  <div class="tool">
+   <h3>🎮 Random Game Picker</h3>
+   <p style="color:var(--muted)">Can't decide what to play?</p>
+   <button onclick="randomGame()">Pick A Game</button>
+   <div class="result" id="gameResult">🎲 Click the button!</div>
+  </div>
+
+  <div class="tool">
+   <h3>⏱️ Gaming Timer</h3>
+   <label>Minutes</label>
+   <input id="timerMinutes" type="number" value="30">
+   <button onclick="startTimer()">Start Timer</button>
+   <button onclick="stopTimer()">Stop</button>
+   <div class="result" id="timerResult">30:00</div>
+  </div>
+
+  <div class="tool">
+   <h3>💰 Gaming Budget</h3>
+   <label>Budget (£)</label>
+   <input id="budget" type="number" value="100">
+   <label>Game Price (£)</label>
+   <input id="gamePrice" type="number" value="20">
+   <button onclick="budgetCalc()">Calculate</button>
+   <div class="result" id="budgetResult"></div>
+  </div>
+
+  <div class="tool">
+   <h3>📊 FPS Calculator</h3>
+   <label>Average FPS</label>
+   <input id="fps" type="number" value="120">
+   <button onclick="fpsCalc()">Analyse FPS</button>
+   <div class="result" id="fpsResult"></div>
+  </div>
+
+  <div class="tool">
+   <h3>🎯 Sensitivity Helper</h3>
+   <label>Current Sensitivity</label>
+   <input id="sens" type="number" value="1">
+   <label>Multiplier</label>
+   <input id="sensMulti" type="number" value="0.5">
+   <button onclick="sensCalc()">Calculate</button>
+   <div class="result" id="sensResult"></div>
+  </div>
+
+ </div>
+</section>
+
+<section id="minecraft">
+ <div class="section-title">
+  <div>
+   <h2>⛏️ Minecraft Command Generator</h2>
+   <p>Generate common commands quickly.</p>
+  </div>
+ </div>
+
+ <div class="tools">
+
+  <div class="tool">
+   <h3>⚔️ OP Sword</h3>
+
+   <label>Player</label>
+   <input id="mcPlayer" value="@p">
+
+   <label>Sharpness</label>
+   <input id="sharpness" type="number" value="255">
+
+   <label>Name</label>
+   <input id="swordName" value="Destroyer">
+
+   <button onclick="makeSword()">Generate Command</button>
+
+   <div class="result" id="swordResult"></div>
+  </div>
+
+  <div class="tool">
+   <h3>💎 Give Item</h3>
+
+   <label>Player</label>
+   <input id="givePlayer" value="@p">
+
+   <label>Item</label>
+   <input id="giveItem" value="diamond">
+
+   <label>Amount</label>
+   <input id="giveAmount" type="number" value="64">
+
+   <button onclick="makeGive()">Generate Command</button>
+
+   <div class="result" id="giveResult"></div>
+  </div>
+
+  <div class="tool">
+   <h3>🧟 Summon Mob</h3>
+
+   <label>Mob</label>
+   <input id="mob" value="zombie">
+
+   <label>Name</label>
+   <input id="mobName" value="Boss">
+
+   <button onclick="makeMob()">Generate Command</button>
+
+   <div class="result" id="mobResult"></div>
+  </div>
+
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <div>
+   <h2>🎯 Gaming Checklist</h2>
+   <p>Keep track of what you need to do.</p>
+  </div>
+ </div>
+
+ <div class="tool">
+  <div class="checklist">
+   <input id="todoInput" placeholder="e.g. Build my Minecraft base">
+   <button style="width:auto;margin:0" onclick="addTodo()">Add</button>
+  </div>
+
+  <ul class="todo" id="todoList"></ul>
+ </div>
+</section>
+
+<section id="notes">
+ <div class="section-title">
+  <div>
+   <h2>📝 Gamer Notes</h2>
+   <p>Your notes automatically save in this browser.</p>
+  </div>
+ </div>
+
+ <div class="tool">
+  <textarea id="notesBox" placeholder="Write your gaming notes here..."></textarea>
+  <button onclick="saveNotes()">💾 Save Notes</button>
+  <div class="result" id="notesMessage"></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <div>
+   <h2>🌐 Quick Links</h2>
+   <p>Useful gaming destinations.</p>
+  </div>
+ </div>
+
+ <div class="quick">
+  <a href="https://www.minecraft.net/" target="_blank">⛏️ Minecraft</a>
+  <a href="https://www.roblox.com/" target="_blank">🟥 Roblox</a>
+  <a href="https://store.steampowered.com/" target="_blank">🎮 Steam</a>
+  <a href="https://store.epicgames.com/" target="_blank">🟣 Epic Games</a>
+  <a href="https://modrinth.com/" target="_blank">🧩 Modrinth</a>
+  <a href="https://github.com/" target="_blank">🐙 GitHub</a>
+ </div>
+</section>
+
+<section id="news">
+ <div class="section-title">
+  <div>
+   <h2>📰 What's New</h2>
+   <p>Latest SpeedGamz features.</p>
+  </div>
+ </div>
+
+ <div class="news">
+
+  <div class="news-card">
+   <small>NEW</small>
+   <h3>🎮 Game Hub</h3>
+   <p>Search through your favourite games directly from SpeedGamz.</p>
+  </div>
+
+  <div class="news-card">
+   <small>NEW</small>
+   <h3>⛏️ Minecraft Generator</h3>
+   <p>Generate useful Minecraft commands with a few clicks.</p>
+  </div>
+
+  <div class="news-card">
+   <small>NEW</small>
+   <h3>🛠️ Gamer Tools</h3>
+   <p>Timers, randomizers, FPS tools, budget tools and more.</p>
+  </div>
+
+ </div>
+</section>
+
+<section>
+ <div class="tool">
+  <h3>⌨️ SpeedGamz Shortcuts</h3>
+  <p style="color:var(--muted);line-height:2;margin-top:10px">
+   <kbd>G</kbd> Games &nbsp;
+   <kbd>T</kbd> Tools &nbsp;
+   <kbd>M</kbd> Minecraft &nbsp;
+   <kbd>N</kbd> Notes &nbsp;
+   <kbd>H</kbd> Home
+  </p>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <strong>SpeedGamz 🎮</strong>
+ <br>
+ <span>Made for gamers • All-in-one gaming hub</span>
+ <br><br>
+ <span>© 2026 SpeedGamz</span>
+</footer>
+
+<script>
+
+const games=[
+ "Minecraft",
+ "Roblox",
+ "Fortnite",
+ "Valorant",
+ "Bloxd.io",
+ "Miniblox",
+ "Among Us",
+ "Rocket League",
+ "GTA V",
+ "Terraria",
+ "Geometry Dash",
+ "Apex Legends"
+];
+
+document.getElementById("gameCount").textContent =
+ document.querySelectorAll(".game").length;
+
+function scrollToId(id){
+ document.getElementById(id).scrollIntoView({
+  behavior:"smooth"
+ });
+}
+
+function showMessage(text){
+ alert(text);
+}
+
+function searchGames(){
+ const query=document.getElementById("gameSearch").value.toLowerCase();
+
+ document.querySelectorAll(".game").forEach(card=>{
+  const name=card.dataset.name.toLowerCase();
+
+  card.classList.toggle(
+   "hidden",
+   !name.includes(query)
+  );
+ });
+}
+
+function randomNumber(){
+ let min=Number(document.getElementById("minNum").value);
+ let max=Number(document.getElementById("maxNum").value);
+
+ if(min>max){
+  [min,max]=[max,min];
+ }
+
+ const n=Math.floor(Math.random()*(max-min+1))+min;
+
+ document.getElementById("randomResult").textContent=
+  "🎲 Your number: "+n;
+}
+
+function randomGame(){
+ const game=games[Math.floor(Math.random()*games.length)];
+
+ document.getElementById("gameResult").textContent=
+  "🎮 Play: "+game;
+}
+
+let timerInterval=null;
+
+function startTimer(){
+
+ stopTimer();
+
+ let seconds=
+  Number(document.getElementById("timerMinutes").value)*60;
+
+ function update(){
+
+  let mins=Math.floor(seconds/60);
+  let secs=seconds%60;
+
+  document.getElementById("timerResult").textContent=
+   String(mins).padStart(2,"0")+":"+
+   String(secs).padStart(2,"0");
+
+  if(seconds<=0){
+   stopTimer();
+   alert("⏰ Gaming timer finished!");
+   return;
+  }
+
+  seconds--;
+ }
+
+ update();
+
+ timerInterval=setInterval(update,1000);
+}
+
+function stopTimer(){
+ if(timerInterval){
+  clearInterval(timerInterval);
+  timerInterval=null;
+ }
+}
+
+function budgetCalc(){
+
+ const budget=Number(document.getElementById("budget").value);
+ const price=Number(document.getElementById("gamePrice").value);
+
+ if(price<=0){
+  document.getElementById("budgetResult").textContent=
+   "Enter a valid game price.";
+  return;
+ }
+
+ const games=Math.floor(budget/price);
+ const remaining=(budget-games*price).toFixed(2);
+
+ document.getElementById("budgetResult").textContent=
+  "💰 You can buy "+games+
+  " game(s).\nMoney left: £"+remaining;
+}
+
+function fpsCalc(){
+
+ const fps=Number(document.getElementById("fps").value);
+
+ let text="";
+
+ if(fps>=240) text="🔥 INSANE FPS";
+ else if(fps>=144) text="⚡ Excellent FPS";
+ else if(fps>=100) text="🎯 Very good FPS";
+ else if(fps>=60) text="✅ Good FPS";
+ else if(fps>=30) text="⚠️ Playable but low";
+ else text="🐌 Very low FPS";
+
+ document.getElementById("fpsResult").textContent=
+  text+"\nAverage: "+fps+" FPS";
+}
+
+function sensCalc(){
+
+ const sens=Number(document.getElementById("sens").value);
+ const multi=Number(document.getElementById("sensMulti").value);
+
+ const result=sens*multi;
+
+ document.getElementById("sensResult").textContent=
+  "🎯 New sensitivity: "+result;
+}
+
+function makeSword(){
+
+ const player=document.getElementById("mcPlayer").value;
+ const sharp=document.getElementById("sharpness").value;
+ const name=document.getElementById("swordName").value;
+
+ const command=
+ "/give "+player+
+ " diamond_sword 1 0 {display:{Name:\""+
+ name+
+ "\"},ench:[{id:16,lvl:"+
+ sharp+
+ "}]}";
+
+ document.getElementById("swordResult").textContent=command;
+}
+
+function makeGive(){
+
+ const player=document.getElementById("givePlayer").value;
+ const item=document.getElementById("giveItem").value;
+ const amount=document.getElementById("giveAmount").value;
+
+ document.getElementById("giveResult").textContent=
+  "/give "+player+" "+item+" "+amount;
+}
+
+function makeMob(){
+
+ const mob=document.getElementById("mob").value;
+ const name=document.getElementById("mobName").value;
+
+ document.getElementById("mobResult").textContent=
+  "/summon "+mob+
+  " ~ ~ ~ {CustomName:\""+
+  name+"\"}";
+}
+
+function saveNotes(){
+
+ const notes=document.getElementById("notesBox").value;
+
+ localStorage.setItem("speedgamz_notes",notes);
+
+ document.getElementById("notesMessage").textContent=
+  "✅ Notes saved!";
+
+ updateNoteStatus();
+}
+
+function updateNoteStatus(){
+
+ const notes=localStorage.getItem("speedgamz_notes")||"";
+
+ document.getElementById("noteStatus").textContent=
+  notes.length>0 ? "SAVED" : "0";
+}
+
+document.getElementById("notesBox").value=
+ localStorage.getItem("speedgamz_notes")||"";
+
+updateNoteStatus();
+
+function addTodo(){
+
+ const input=document.getElementById("todoInput");
+ const text=input.value.trim();
+
+ if(!text)return;
+
+ const li=document.createElement("li");
+
+ li.innerHTML=
+  "<span>🎮 "+escapeHTML(text)+"</span>"+
+  "<button onclick=\"this.parentElement.remove()\">✕</button>";
+
+ document.getElementById("todoList").appendChild(li);
+
+ input.value="";
+}
+
+function escapeHTML(text){
+
+ const div=document.createElement("div");
+ div.textContent=text;
+ return div.innerHTML;
+}
+
+function toggleTheme(){
+
+ const root=document.documentElement;
+
+ if(root.dataset.light==="yes"){
+
+  root.dataset.light="no";
+
+  root.style.setProperty("--bg","#070a12");
+  root.style.setProperty("--panel","#0e1422");
+  root.style.setProperty("--panel2","#121a2b");
+  root.style.setProperty("--text","#f5f7ff");
+  root.style.setProperty("--muted","#8e99b5");
+
+  localStorage.setItem("speedgamz_theme","dark");
+
+ }else{
+
+  root.dataset.light="yes";
+
+  root.style.setProperty("--bg","#eef1f8");
+  root.style.setProperty("--panel","#ffffff");
+  root.style.setProperty("--panel2","#e5e9f2");
+  root.style.setProperty("--text","#111522");
+  root.style.setProperty("--muted","#596276");
+
+  localStorage.setItem("speedgamz_theme","light");
+ }
+}
+
+if(localStorage.getItem("speedgamz_theme")==="light"){
+ toggleTheme();
+}
+
+document.addEventListener("keydown",function(e){
+
+ if(e.target.tagName==="INPUT" ||
+    e.target.tagName==="TEXTAREA") return;
+
+ const key=e.key.toLowerCase();
+
+ if(key==="g") scrollToId("games");
+ if(key==="t") scrollToId("tools");
+ if(key==="m") scrollToId("minecraft");
+ if(key==="n") scrollToId("notes");
+ if(key==="h") window.scrollTo({
+  top:0,
+  behavior:"smooth"
+ });
+
+});
+
+</script>
+
+</body>
+</html>
+```
